@@ -296,3 +296,7 @@ inside .env.development.local - `your actual envs`.
 Now you can import envs from env.js
 
 ### Set up our routes
+
+---
+
+### Database setup
