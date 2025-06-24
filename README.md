@@ -267,3 +267,30 @@ Set up completed.
 ---
 
 ### Start creating express server
+
+---
+
+### env config
+
+Create a folder `config`. inside it, create file **env.js**
+
+_env.js_
+
+```javascript
+import { config } from "dotenv";
+
+config({ path: `.env.${process.env.NODE_ENV || "development"}.local` });
+
+export const { PORT } = process.env;
+```
+
+also create two files.
+
+1. `.env.production.local`
+2. `.env.development.local`
+
+inside .env.production.local - `NODE_ENV='production'`
+
+inside .env.development.local - `your actual envs`.
+
+Now you can import envs from env.js
