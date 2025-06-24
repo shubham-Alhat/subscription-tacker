@@ -294,3 +294,5 @@ inside .env.production.local - `NODE_ENV='production'`
 inside .env.development.local - `your actual envs`.
 
 Now you can import envs from env.js
+
+### Set up our routes
