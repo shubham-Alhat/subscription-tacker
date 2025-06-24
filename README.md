@@ -302,3 +302,7 @@ Now you can import envs from env.js
 ### Database setup
 
 ---
+
+### Error handling
+
+Create a folder `middleware`. in that error.middleware.js
