@@ -248,3 +248,22 @@ This is using **Express Generator**, a tool to scaffold (generate) a basic Expre
 ---
 
 Now, delete folders - `bin, routes and public` and also delete content of **app.js**, not file of app.js.
+
+### Now linter for clean code base and scalability
+
+we are using here **ESlint**. most common for JS.
+It actually format and maintain clean code through out our folder.
+
+Run following command
+
+```
+npx eslint --init
+```
+
+---
+
+Set up completed.
+
+---
+
+### Start creating express server
