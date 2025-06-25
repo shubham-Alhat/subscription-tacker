@@ -75,6 +75,22 @@ export const signUp = async (req, res, next) => {
 
 ### 4. Use of Arcjet to protect our APIs from bots and spammers.
 
+1. Create project on arcjet.
+2. Get the keys and paste in .env.development.local.
+
+- ARCJET_KEY="aj_key.."
+- ARCJET_ENV="development"
+
+3. Choose stacks. here - **Node + Express**
+4. you will get docs.
+5. Install packages that mention.
+6. Create a file `arcjet.js` in 📁**config** folder.
+7. there we have configured which algo arcjet using to detect spams on our APIs.
+8. Now, we are using arcjet as middleware. so, Create file `arcjet.middleware.js` in 📁**middleware** folder.
+9. In that file, we actually sending messages and errors on basis of what arcjet detecting.
+10. As everytime we do. `app.use(arcjetMiddleware);` in **app.js** file.
+11. Now check by sending request as fast as possible.
+
 When we send request to backend from frontend.
 **This is how request goes with data.**
 
