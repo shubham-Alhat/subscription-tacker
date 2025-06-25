@@ -2,6 +2,77 @@
 
 ### Basics of backend
 
+## Teaching rom JS mastery.
+
+### 1. Error handling in controller. - gives json error.
+
+```javascript
+if (!isPasswordValid) {
+  const error = new Error("Invalid user password");
+  error.statusCode = 400;
+  throw error;
+}
+```
+
+### 2. Session use in Mongodb operation.
+
+```javascript
+export const signUp = async (req, res, next) => {
+  const session = await mongoose.startSession();
+  session.startTransaction();
+
+  try {
+    // logic to create new user
+    const { name, password, email } = req.body;
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      const error = new Error("User already exists");
+      error.statusCode = 409;
+      throw error;
+    }
+
+    // hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    const newUser = await User.create(
+      [
+        {
+          name,
+          email,
+          password: hashedPassword,
+        },
+      ],
+      { session }
+    );
+
+    const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+    });
+
+    await session.commitTransaction();
+    session.endSession();
+
+    res.status(201).json({
+      success: true,
+      message: "User created successfully",
+      data: {
+        token,
+        user: newUser[0],
+      },
+    });
+  } catch (error) {
+    await session.abortTransaction();
+    session.endSession();
+    next(error);
+  }
+};
+```
+
+### 3. Handle access and refresh token very easily. Not complicated as hitesh did.
+
 When we send request to backend from frontend.
 **This is how request goes with data.**
 
