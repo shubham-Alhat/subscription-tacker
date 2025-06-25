@@ -94,6 +94,21 @@ export const signUp = async (req, res, next) => {
 When we send request to backend from frontend.
 **This is how request goes with data.**
 
+### 5. Workflows
+
+#### Setting up Upstash
+
+1. Go to Upstash.com. create account. you will be in **redis tab**.
+2. Switch to **workflows tab**.
+3. Copy the envs and paste in env file.
+4. click on docs > quick start > expressjs.
+5. install package by running `npm install @upstash/workflow`. (_Read some docs first_).
+6. Create file `upstash.js` in **config** folder.(_make sure you export envs in env.js_)
+7. In these file, config is there.
+8. Create `workflow.routes.js` in routes folder. create ts router there.
+9. Import it in app.js and create it route.
+10. Now, create a controller
+
 ![alt text](image.png)
 
 **Then it processes the data and sent back the response. just like below**
