@@ -73,6 +73,8 @@ export const signUp = async (req, res, next) => {
 
 ### 3. Handle access and refresh token very easily. Not complicated as hitesh did.
 
+### 4. Use of Arcjet to protect our APIs from bots and spammers.
+
 When we send request to backend from frontend.
 **This is how request goes with data.**
 
